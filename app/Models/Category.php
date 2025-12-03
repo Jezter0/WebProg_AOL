@@ -20,6 +20,12 @@ class Category extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeForUser($query, $userId)
+    {
+        return $query->whereNull('user_id') // global
+                     ->orWhere('user_id', $userId); // user-specific
+    }
+
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);

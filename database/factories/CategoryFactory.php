@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,20 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+
+        $type = $this->faker->randomElement(['income', 'expense']);
+
+        $incomeCategories = ['Freelance', 'Refund', 'Gift'];
+        $expenseCategories = ['Healthcare', 'Shopping', 'Education'];
+
+        $name = $type === 'income' 
+            ? $this->faker->randomElement($incomeCategories)
+            : $this->faker->randomElement($expenseCategories);
+
         return [
-            //
+            'user_id' => User::factory(),
+            'name' => $name,
+            'type' => $type,
         ];
     }
 }
