@@ -63,4 +63,4 @@
         <a href="{{ route('budgets.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
-@endsection
+@endsection 

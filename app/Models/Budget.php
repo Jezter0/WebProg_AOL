@@ -28,14 +28,20 @@ class Budget extends Model
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class, 'category_id', 'category_id')
-                    ->whereMonth('date', $this->month)
+                    ->where('user_id', $this->user_id)
                     ->whereYear('date', $this->year)
-                    ->where('user_id', $this->user_id);
+                    ->whereMonth('date', $this->month);
     }
 
     public function getSpentAttribute()
     {
-        return $this->transactions()->sum('amount') ?? 0;
+        if (!$this->exists) return 0;
+    
+        return Transaction::where('user_id', $this->user_id)
+                        ->where('category_id', $this->category_id)
+                        ->whereYear('date', $this->year)
+                        ->whereMonth('date', $this->month)
+                        ->sum('amount') ?? 0;
     }
 
     public function getProgressPercentageAttribute()

@@ -31,7 +31,10 @@ class BudgetController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('user_id', auth()->id())
+                            ->orWhereNull('user_id')
+                            ->distinct()
+                            ->get();
         return view('budgets.create', compact('categories'));
     }
 
@@ -65,7 +68,10 @@ class BudgetController extends Controller
      */
     public function edit(Budget $budget)
     {
-        $categories = Category::all();
+        $categories = Category::where('user_id', auth()->id())
+                         ->orWhereNull('user_id')
+                         ->distinct()
+                         ->get();
         return view('budgets.edit', compact('budget', 'categories'));
     }
 
