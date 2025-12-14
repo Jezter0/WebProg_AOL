@@ -4,8 +4,6 @@
 <div class="container">
   <h1>Transactions</h1>
 
-  @if(session('success')) <div class="alert alert-success">{{ session('success') }}</div> @endif
-
   <form method="GET" class="row g-2 mb-3">
     <div class="col-auto"><input type="date" name="from" class="form-control" value="{{ request('from') }}"></div>
     <div class="col-auto"><input type="date" name="to" class="form-control" value="{{ request('to') }}"></div>
