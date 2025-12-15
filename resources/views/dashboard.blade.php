@@ -4,7 +4,13 @@
 
 @section('content')
 <div class="container py-4">
-    <h1 class="mb-4">Dashboard</h1>
+    {{-- Add Transaction Button --}}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Dashboard</h1>
+        <a href="{{ route('transactions.create') }}" class="btn btn-primary">
+            + Add Transaction
+        </a>
+    </div>
 
     {{-- SUMMARY CARDS --}}
     <div class="row mb-4">
@@ -50,6 +56,12 @@
                     <h5 class="mb-0">Daily Income & Expenses</h5>
                 </div>
                 <div class="card-body">
+                    <div class="d-flex justify-content-end mb-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary active" id="barBtn">Bar</button>
+                            <button class="btn btn-outline-primary" id="lineBtn">Line</button>
+                        </div>
+                    </div>
                     <canvas id="transactionChart"></canvas>
                 </div>
             </div>
@@ -106,34 +118,57 @@
     const incomeData = chartData.map(item => item.income);
     const expenseData = chartData.map(item => item.expense);
 
+    const barBtn = document.getElementById('barBtn');
+    const lineBtn = document.getElementById('lineBtn');
+
+
     const ctx = document.getElementById('transactionChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Income',
-                    data: incomeData,
-                    borderWidth: 2,
-                    tension: 0.4,
-                    fill: false
-                },
-                {
-                    label: 'Expenses',
-                    data: expenseData,
-                    borderWidth: 2,
-                    tension: 0.4,
-                    fill: false
+    let chartType = 'bar';
+    let chart;
+
+    function renderChart(type) {
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+            type: type,
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Income',
+                        data: incomeData,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Expenses',
+                        data: expenseData,
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
                 }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true }
             }
-        }
-    });
+        });
+    }
+
+    renderChart(chartType);
+
+    document.getElementById('barBtn').onclick = () => {
+        chartType = 'bar';
+        renderChart(chartType);
+        barBtn.classList.add('active');
+        lineBtn.classList.remove('active');
+    };
+
+    document.getElementById('lineBtn').onclick = () => {
+        chartType = 'line';
+        renderChart(chartType);
+        lineBtn.classList.add('active');
+        barBtn.classList.remove('active');
+    };
 </script>
 @endsection
