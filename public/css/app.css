@@ -35,6 +35,69 @@ body {
     --bs-gutter-y: 1.5rem;
 }
 
+/* Auth page wrapper */
+.auth-wrapper {
+    min-height: 80vh;
+}
+
+/* Login card */
+.auth-card {
+    width: 420px;
+    padding: 2rem;
+    border-radius: 18px;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    background-color: var(--bg-card);
+}
+
+/* Logo */
+.alloc-logo {
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--hunter-green);
+}
+
+.alloc-logo span {
+    color: var(--dry-sage);
+}
+
+/* Inputs */
+.auth-card .form-control {
+    border-radius: 12px;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--border-soft);
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--dry-sage);
+    box-shadow: 0 0 0 0.15rem rgba(163,177,138,0.25);
+}
+
+/* Labels */
+.auth-card .form-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-main);
+}
+
+/* Button */
+.auth-card .btn-primary {
+    padding: 0.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Link */
+.auth-link {
+    color: var(--hunter-green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
 /* Navbar */
 .navbar {
     background-color: var(--bg-card);

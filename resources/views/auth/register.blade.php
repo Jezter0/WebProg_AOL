@@ -3,14 +3,14 @@
 @section('title', 'Register')
 
 @section('content')
-<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="card shadow-lg p-4" style="width: 420px;">
-        <h1 class="text-center mb-2 text-primary fw-bold">Alloc</h1>
+<div class="d-flex justify-content-center align-items-center auth-wrapper">
+    <div class="card auth-card">
+        <h1 class="text-center mb-1 alloc-logo">Al<span>loc</span></h1>
         <p class="text-center text-muted mb-4">Create your account</p>
 
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0 small">
+            <div class="alert alert-danger small">
+                <ul class="mb-0">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
@@ -22,49 +22,59 @@
             @csrf
 
             <div class="mb-3">
-                <label class="form-label fw-semibold">Full Name</label>
-                <input type="text" 
-                       name="name" 
-                       value="{{ old('name') }}" 
-                       required
-                       class="form-control">
+                <label class="form-label">Full name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value="{{ old('name') }}"
+                    required
+                    class="form-control"
+                >
             </div>
 
             <div class="mb-3">
-                <label class="form-label fw-semibold">Email</label>
-                <input type="email" 
-                       name="email" 
-                       value="{{ old('email') }}" 
-                       required
-                       class="form-control">
+                <label class="form-label">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    value="{{ old('email') }}"
+                    required
+                    class="form-control"
+                >
             </div>
 
             <div class="mb-3">
-                <label class="form-label fw-semibold">Password</label>
-                <input type="password" 
-                       name="password" 
-                       required
-                       class="form-control">
-                <div class="form-text">Must be at least 8 characters.</div>
+                <label class="form-label">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    class="form-control"
+                >
+                <div class="form-text small">
+                    Minimum 8 characters
+                </div>
             </div>
 
             <div class="mb-3">
-                <label class="form-label fw-semibold">Confirm Password</label>
-                <input type="password" 
-                       name="password_confirmation" 
-                       required
-                       class="form-control">
+                <label class="form-label">Confirm password</label>
+                <input
+                    type="password"
+                    name="password_confirmation"
+                    required
+                    class="form-control"
+                >
             </div>
 
             <button type="submit" class="btn btn-primary w-100 mt-3">
-                Create Account
+                Create account
             </button>
         </form>
 
-        <p class="text-center text-muted mt-4">
+        <p class="text-center text-muted mt-4 mb-0">
             Already have an account?
-            <a href="{{ route('login') }}" class="fw-semibold text-primary">
-                Login here
+            <a href="{{ route('login') }}" class="auth-link">
+                Login
             </a>
         </p>
     </div>
