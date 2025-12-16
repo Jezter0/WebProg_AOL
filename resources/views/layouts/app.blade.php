@@ -6,18 +6,21 @@
     <title>@yield('title', 'Budget Manager')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
 
-<body class="bg-light">
+<body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container">
 
-            <a class="navbar-brand fw-bold text-primary" href="{{ route('dashboard') }}">
-                Budget Manager
+            <a class="navbar-brand alloc-logo" href="{{ route('dashboard') }}">
+                Al<span>loc</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

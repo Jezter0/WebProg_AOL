@@ -15,7 +15,7 @@
     {{-- SUMMARY CARDS --}}
     <div class="row mb-4">
         <div class="col-md-4">
-            <div class="card text-white bg-success mb-3">
+            <div class="card dashboard-card card-income">
                 <div class="card-body">
                     <h5 class="card-title">Income (This Month)</h5>
                     <p class="card-text display-6">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card text-white bg-danger mb-3">
+            <div class="card dashboard-card card-expense">
                 <div class="card-body">
                     <h5 class="card-title">Expenses (This Month)</h5>
                     <p class="card-text display-6">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3">
+            <div class="card dashboard-card card-balance">
                 <div class="card-body">
                     <h5 class="card-title">Balance</h5>
                     <p class="card-text display-6">

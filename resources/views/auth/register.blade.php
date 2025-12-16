@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow-lg p-4" style="width: 420px;">
-        <h1 class="text-center mb-2 text-primary fw-bold">Budget Manager</h1>
+        <h1 class="text-center mb-2 text-primary fw-bold">Alloc</h1>
         <p class="text-center text-muted mb-4">Create your account</p>
 
         @if ($errors->any())

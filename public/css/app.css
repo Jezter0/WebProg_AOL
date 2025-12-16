@@ -1,0 +1,171 @@
+:root {
+    /* Core palette */
+    --dust-grey:    #dad7cd;
+    --dry-sage:     #a3b18a;
+    --fern:         #588157;
+    --hunter-green: #3a5a40;
+    --pine-teal:    #344e41;
+
+    /* App surfaces */
+    --bg-app:        #f4f3ee;
+    --bg-card:       #ffffff;
+    --border-soft:   #e6e4dc;
+
+    /* Text */
+    --text-main:     #2f3e34;
+    --text-muted:    #6c7a6e;
+
+    /* Semantic roles */
+    --primary:       var(--hunter-green);
+    --secondary:     var(--fern);
+    --accent:        var(--dry-sage);
+
+    /* Bootstrap font */
+    --bs-body-font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+    background-color: var(--bg-app);
+    color: var(--text-main);
+}
+
+/* Layout spacing */
+.row {
+    --bs-gutter-y: 1.5rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.navbar-brand span {
+    color: var(--secondary);
+}
+
+.navbar .nav-link {
+    color: var(--text-muted);
+}
+
+.navbar .nav-link.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--pine-teal);
+    border-color: var(--pine-teal);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+/* Cards */
+.card {
+    background: var(--bg-card);
+    border-radius: 14px;
+    border: 1px solid var(--border-soft);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid var(--border-soft);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Dashboard summary cards */
+.dashboard-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.dashboard-card h5 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.dashboard-card .display-6 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Income */
+.card-income {
+    background: linear-gradient(135deg, var(--dry-sage), var(--fern));
+    color: #fff;
+}
+
+/* Expense (warm, muted — not red) */
+.card-expense {
+    background: linear-gradient(135deg, #d6a88f, #b07a63);
+    color: #fff;
+}
+
+/* Balance */
+.card-balance {
+    background: linear-gradient(135deg, var(--dust-grey), var(--dry-sage));
+    color: var(--text-main);
+}
+
+/* Lists */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0.9rem 1.25rem;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item small {
+    font-size: 0.75rem;
+}
+
+/* Text utilities */
+.text-success {
+    color: var(--secondary) !important;
+}
+
+.text-danger {
+    color: #b07a63 !important;
+}
+
+/* Chart toggle buttons */
+.btn-group .btn {
+    --bs-btn-color: var(--primary);
+    --bs-btn-border-color: var(--border-soft);
+}
+
+.btn-group .btn.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
