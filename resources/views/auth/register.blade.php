@@ -8,16 +8,6 @@
         <h1 class="text-center mb-1 alloc-logo">Al<span>loc</span></h1>
         <p class="text-center text-muted mb-4">Create your account</p>
 
-        @if ($errors->any())
-            <div class="alert alert-danger small">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
