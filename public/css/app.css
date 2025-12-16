@@ -15,6 +15,9 @@
     --text-main:     #2f3e34;
     --text-muted:    #6c7a6e;
 
+    --bg-navbar: #344e41ff;    
+    --bg-navbar-hover: #3a5a40ff;
+
     /* Semantic roles */
     --primary:       var(--hunter-green);
     --secondary:     var(--fern);
@@ -100,27 +103,58 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: var(--bg-card);
-    border-bottom: 1px solid var(--border-soft);
+    background-color: var(--bg-navbar);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
 
+/* Brand */
 .navbar-brand {
+    color: #f6f5f1 !important;
     font-weight: 800;
-    font-size: 1.4rem;
-    color: var(--primary);
 }
 
 .navbar-brand span {
     color: var(--secondary);
 }
 
+/* Links */
 .navbar .nav-link {
-    color: var(--text-muted);
+    color: rgba(246,245,241,0.75) !important;
 }
 
+.navbar .nav-link:hover,
 .navbar .nav-link.active {
-    color: var(--primary);
+    color: #f6f5f1 !important;
     font-weight: 600;
+}
+
+/* Navbar user button */
+.btn-navbar {
+    background: transparent;
+    border: 1px solid rgba(246,245,241,0.25);
+    color: #f6f5f1;
+    font-weight: 500;
+}
+
+.btn-navbar:hover,
+.btn-navbar:focus {
+    background-color: rgba(246,245,241,0.08);
+    color: #f6f5f1;
+    border-color: rgba(246,245,241,0.4);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-soft);
+}
+
+.dropdown-item {
+    color: var(--text-main);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0,0,0,0.05);
 }
 
 /* Buttons */
@@ -319,4 +353,24 @@ body {
 .page-item:first-child .page-link,
 .page-item:last-child .page-link {
     font-weight: 600;
+}
+
+/* Budget cards */
+.budget-card {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Progress bar */
+.budget-progress {
+    height: 26px;
+    border-radius: 999px;
+    background-color: #e9ecef;
+}
+
+.budget-progress .progress-bar {
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 999px;
 }

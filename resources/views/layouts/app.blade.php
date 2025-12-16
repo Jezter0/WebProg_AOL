@@ -16,7 +16,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg shadow-sm">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
 
             <a class="navbar-brand alloc-logo" href="{{ route('dashboard') }}">
@@ -29,8 +29,9 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarMenu">
-
+                
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @auth
                     <li class="nav-item">
                         <a href="{{ route('dashboard') }}" 
                            class="nav-link {{ request()->routeIs('dashboard') ? 'active fw-semibold' : '' }}">
@@ -58,25 +59,41 @@
                             Budgets
                         </a>
                     </li>
+                    @endauth
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>
+                    @endguest
                 </ul>
 
                 @auth
-                    <div class="dropdown">
-                        <button class="btn btn-outline-primary dropdown-toggle" 
-                                type="button" data-bs-toggle="dropdown">
-                            {{ Auth::user()->name }}
-                        </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-navbar dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown">
+                        {{ Auth::user()->name }}
+                    </button>
 
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button class="dropdown-item text-danger">Logout</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="dropdown-item text-danger">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
                 @endauth
+
             </div>
 
         </div>
